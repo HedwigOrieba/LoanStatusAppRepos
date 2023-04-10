@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+
+        <title>LoanStatusApp-dfcu</title>
+
+        <meta charset="utf-8"/>
+        <meta name="Author" content="Hedwig Orieba"/>
+        <meta name="description" content="Api Administration View."/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script> 
+        <script src="./js_libs/jquery-3.6.4.min.js"></script>
+        
+        <!-- <script src="/js_custom/customjs.js"></script> -->
+        <script src="./js_custom/loanstatuserjs.js"></script>
+        <!-- <script src="./js_custom/apidatarsxtemplates.js"></script>-->
+        <!--<script src="./js_custom/createapidatalists.js"></script> -->
+
+
+        <style type="text/css">
+                body{
+                        margin: 0px;       
+                }
+
+                #base{
+                    width:80%;
+                    margin: auto;
+                    background-color: #cdccd4;
+                    margin-top: 20px;
+                }
+
+                #header{
+                    height:80px;
+                    background-color: #f8f8d8; /**/
+                    background-color: #f7f8f7;
+                    line-height: 80px;
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color:#9245dd;
+                    padding-left: 10px;
+                    font-family: trebuchet;
+                    text-align: center;
+                }
+
+                #leftCont{
+                    background-color: rgb(232, 233, 233);
+                    width:20%;
+                    float:left;
+                    height: 500px;
+                }
+
+                #mainCont{
+                    background-color: rgb(232, 233, 233);
+                    width:80%;
+                    float:right;  
+                    height:500px;
+                }
+
+                #leftnavhead{
+                    background-color: #fcfcfc;
+                    width:95%;
+                    height:96%;
+                    margin: auto;
+                    margin-top: 10px;
+                    border-radius: 8px;
+                    
+                }
+
+                .routes{
+                    position: relative;
+                    top:10px;
+                    height:4%;
+                    line-height: 18px;
+                    width:95%;
+                    margin-top: 10px;
+                    margin: auto;
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    color:#cd3cff;
+                }
+
+                #menu_head{
+                    text-align: left;
+                    padding-left: 12px;
+                }
+
+                #api_routes{
+                    background-color: rgb(232, 241, 241);
+                    height:32%;
+                    margin-top: 10px;
+                    font-weight: normal;
+                }
+
+                .endpoint{
+                    font-family: Trebuchet;
+                    font-size: 0.9em;
+                    width:90%;
+                    height:25px;
+                    line-height:25px;
+                    background-color: #fff;
+                    margin-bottom:10px; 
+                    margin-left: 8px;
+                    border-style: none;
+                    border-radius: 5px;
+                    color:#93859e;
+                    display:block;
+                    text-align: left;
+                    padding-left: 4px;
+                    text-decoration: none;
+                }
+
+                #getLoanStatus{
+                    position: relative;
+                    top:10px;
+                    margin-bottom: 20px;
+                }
+
+                .endpoint:hover{
+                    background-color: rgb(177, 248, 177);
+                    color:#1233ff;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+
+                #mainContentHeader{
+                    background-color: #f7f8f7;
+                    color:#3c7df5;
+                    height:41px;
+                    line-height:41px;
+                    text-align: center;
+                    width:99%;
+                    margin-top:10px;
+                    margin-left:2px;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                    font-size: 0.9em;
+                    font-family: arial;
+                    font-style: italic;
+                }
+
+                #responseCanvas{
+                    background-color: #fefefe;
+                    margin-top: 1px;
+                    margin-left:2px;
+                    width:98.5%;
+                    height:370px;
+                    border-style: inset;
+                    font-size: 0.7em;
+                    font-family: trebuchet;
+                    color:darkcyan
+
+                }
+
+                #summaryCanvas{
+                    background-color: #eff4f8; 
+                    margin-top: 0px;
+                    margin-left:2px;
+                    width:98%;
+                    height:62px;
+                    line-height:62px;
+                    padding-left: 8px;
+                    color: #276b4b;
+                    color:#3c7df5;
+                    font-family:arial;
+                    font-weight: bold;
+                    /* text-align: center; */
+                }
+
+                .rsx{
+                    margin-right:15px;
+                    color: #304eb3;
+                    text-decoration: underline;
+                    font-weight:normal;
+                    font-size: 0.8em;
+                    font-family: arial;
+                    font-style: italic;
+                    font-weight: bold;
+                    margin-left: 8px;
+                }
+
+                .reqs{
+                    /* margin-right:20px; */
+                    color: #183288;
+                    /*text-decoration: underline;*/
+                    font-weight: bold;
+                    font-size: 1.5em;
+                    font-family: arial;
+                    /* font-style: italic; */
+                    margin-left: 8px;
+                }
+
+                #data_{
+                    height:99%;
+                    width:99.4%;
+                    background-color: rgb(214, 225, 235);
+                    background-color: #fff;
+                    
+                    color:rgb(115, 94, 235);
+                    border: none;
+                    /* white-space: nowrap; */
+                }
+
+
+
+                #manage{
+                    position: relative;
+                    top:20px;
+                    /* border:1px solid #cdcdcd; */
+                    height: 20px;
+                    line-height: 20px;
+                    width:92%;
+                    margin: auto;
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    color:#cd3cff;
+                    text-align: left;
+                    padding-left: 2px;
+                    
+                }
+                .api-utils{
+                    position: relative;
+                    top:10px;
+                    height: 30px;;
+                    line-height: 30px;
+                    width:99%;
+                    margin-top: 10px;
+                    margin: auto;
+                    font-size: 0.9em;
+                    /* font-weight: bold; */
+                    color:#93859e;
+                    /* border:1px solid #cdcdcd; */
+                }
+
+                .utilCmd{
+                    font-family: 'Trebuchet MS';
+                    font-weight: normal;
+                    position: relative;
+                    top:3px;
+                    float: left;
+                    height:24px;
+                    line-height: 24px;
+                    width:59%;
+                    /* border:1px solid #cdcdcd; */
+                    text-decoration: none ;
+                    border-style: none;
+                    border-radius: 5px;
+                    background-color: rgb(232, 241, 241);
+                    border-style: none;
+                    padding-left: 4px;
+                    color:#93859e;
+                    
+                }
+
+                .utilCmd:hover{
+                    cursor:pointer;
+                    background-color: rgb(177, 248, 177);
+                    color:#1233ff;
+                    font-weight: bold;
+                    
+                }
+
+                .utilExec{
+                    font-family: 'arial';
+                    font-weight: normal;
+                    position: relative;
+                    top:3px;
+                    float: left;
+                    float: right;
+                    margin-right: 3px;
+                    height:24px;
+                    line-height: 24px;
+                    width:35%;
+                    /* border:1px solid #cdcdcd; */
+                    border-style: none;
+                    text-align: center;
+                    text-decoration: none ;
+                    background-color: rgb(249, 252, 251);
+                    text-decoration: underline;
+                    /* font-style: italic; */
+                    color:#93859e;
+                    
+                }
+                
+                .utilExec:hover{
+                    cursor:pointer;
+                    background-color: rgb(244, 250, 188);
+                    color:#3e55e9;
+                    font-weight: bold;
+                }
+
+                #logout{
+                    clear: both;
+                    position: relative;
+                    top:210px; /**/
+                    padding-left: 2px;
+                    width:93%;
+                    height: 30px;
+                    line-height: 30px;
+                    /* border:1px solid #cdcdcd; */
+                    background-color: rgb(223, 243, 248);
+                    border-radius: 5px;
+                }
+                #logout>a{
+                    color:#5061cf;
+                    font-size: 1.1em;
+                    font-weight: normal;
+                    background-color: rgb(223, 243, 248);
+                    padding: 7px;
+                    width:70px;
+                    
+                }
+
+                #logout>a:hover{
+                    font-weight:bold;
+                    color: #276b4b;
+                    font-size: 1.2em;
+                }
+                .foradmin{
+                    display:none ;
+                }
+
+
+
+
+
+                #dataHead{
+                    height:25px;
+                    width:95%;
+                    line-height: 25px;
+                    border-bottom: 1px solid#cdccd4; 
+                    margin: auto;
+                    margin-top: 9px;
+                    margin-bottom: 9px;
+                    font-weight: bold;
+                    font-family: arial;
+                    background-color:#ffffe0;
+                }
+
+                .payldRow{
+                   color: #3c8aff; 
+                   height:20px;
+                   width:95%;
+                   font-family: trebuchet;
+                   font-size: 1.2em;
+                   padding-left: 7px;
+                   padding-top: 7px;
+                   margin: auto;
+                   /* border: 1px solid#f5f4fc; */
+                   background-color: #f8f8ff;
+                   /* margin-bottom: 5px; */
+                }
+                .payldRow:nth-of-type(odd){
+                    background-color:#f5f5f5;
+                }
+                /* .ddata{
+                    width:13%;
+                    height:20px;
+                    border: 1px solid#cdccd4;
+                    float:left;
+                } */
+
+        </style>
+    </head>
+    <body>
+          <div id="base" >
+                   <div id="header"> CUSTOMER LOAN STATUS - DFCU BANK </div> 
+                   <div id="leftCont">
+                        <div id="leftnavhead">
+                            <div id="menu_head" class="routes"> Perfomance Manager </div>
+                            <div id="api_routes" class="routes">
+                                    <a id="getLoanStatus" href="#" class="endpoint">Get Account Loan-Status</a>
+                                    <a id="" href="#" class="endpoint foradmin"></a>
+                                    <a id="" href="#" class="endpoint foradmin"></a>
+                                    <a id="" href="#" class="endpoint foradmin"></a>
+                            </div>
+                            <div id="manage" class="foradmin"></div>
+                            <div class="routes foradmin">
+                                    <div class="api-utils">
+                                        <a id="userRegJTemplate" href="#" class="utilCmd"></a>
+                                        <a id="createUser" href="#" class="utilExec"></a>
+                                    </div>
+                                    <div class="api-utils">
+                                        <a id="custAccTemplate" href="#" class="utilCmd"></a>
+                                        <a id="createCustAcc" href="#" class="utilExec"></a>
+                                    </div> 
+                                    <div class="api-utils">
+                                        <a id="loanRegJTemplate" href="#" class="utilCmd"></a>
+                                        <a id="createLoanStatus" href="#" class="utilExec"></a>
+                                    </div>
+                            </div>
+                            <div class="routes" id="logout"><a id="exitSession" href="#">Logout</a></div>
+                        </div>
+                        
+                   </div>
+                   <div id="mainCont">
+                          <div id="mainContentHeader"> Request-Based-Results </div>
+                          <div id="mainContentBody">
+                            <div id="responseCanvas">
+                                <!-- <textarea id="data_"></textarea> -->
+                            </div>
+                          </div>
+                          <div id="summaryCanvas"></div>
+                   </div>
+          </div>  
+    </body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "Author":"Hedwig Orieba",
+    "Artifact-type":"Presentation tier back-end Service (RESTful service)",
+    "description": "A back-end loan status processing service for customer accounts at dfcu bank",
+    "Incepion-date": "04-04-2023",
+    "dbconStr":"mongodb://localhost/dfcuDb",
+    "jwtPrivateKey":"dfcu-interview",
+    "loggingdbConstr":"mongodb://localhost/dfcuLogsDB" 
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+
+        <title>LoanStatusApp-dfcu</title>
+
+        <meta charset="utf-8"/>
+        <meta name="Author" content="Hedwig Orieba"/>
+        <meta name="description" content="Api login view"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script src="./js_libs/jquery-3.6.4.min.js"></script>
+        <script src="./js_custom/loginjs.js"></script>
+
+        <style type="text/css">
+                 body{
+                        margin: 0px;
+                        background-color: #b8affa;
+                        
+
+                }
+
+                #base{
+                    width:80%;
+                    margin: auto;
+                    background-color: #cdccd4;
+                    margin-top: 70px;
+                }
+
+                #header{
+                    height:80px;
+                    background-color: #f8f8d8; /**/
+                    background-color: #f7f8f7; /**/
+                    background-color: rgb(241, 252, 251);
+                    background-color: #fefefe; /**/
+                    line-height: 80px;
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color:#80718a;
+                    padding-left: 10px;
+                    font-family: trebuchet;
+                    text-align: center;
+                    border-bottom:1px solid #ccc;
+                    /* border-top-right-radius:12px;
+                    border-top-left-radius:12px; */
+
+                }
+
+                #mainCont{
+                    background-color: rgb(242, 247, 242);
+                    width:100%;
+                    height:300px;
+                    text-align: center;
+                    border-bottom:1px solid #ccc
+                    
+                }
+
+                #summaryCanvas{
+                    background-color: #fefefe ;
+                    width:100%;
+                    height:40px;
+                    line-height:40px;
+                    color:#85888d;
+                    font-family:arial;
+                    font-size: 0.6em;
+                    font-weight:bold ;
+                    text-align: center;
+                    
+                }
+
+                #loginFrm{
+                    position: relative;
+                    top:10px;
+                    background-color: #dcfaf1;  
+                    background-color: #f8d0d0;
+                    height: 93%;
+                    width: 98%;
+                    margin: auto;
+                    border-radius: 7px;        
+                }
+
+                .fieldContainer{
+                    position: relative;
+                    top:50px;
+                    height: 35px;
+                    line-height: 35px;
+                    width:80%;
+                    /* border:1px solid #ccc; */
+                    margin: auto;
+                    margin-bottom: 20px;
+                    
+                }
+                .infolabel{
+                    float: left;
+                    /* border:1px solid #ccc; */
+                    height:30px;
+                    line-height: 30px;
+                    width: 30%;
+                    text-align: right;
+                    margin-top: 2px;
+                    padding-right: 9px;
+                }
+
+                .inputCont{
+                    float: left;
+                    /* border:1px solid #ccc; */
+                    width:53% ;
+                    height:30px;
+                    line-height: 30px;
+                    text-align: left;
+                    margin-top: 2px;
+                    padding-left: 7px;
+                }
+
+                #email{
+                    width: 360px;
+                    color:#696869;
+                }
+
+                #passkey{
+                    width: 360px;
+                    color:#696869;
+                }
+
+                #submitForm{
+                    width: 120px;  
+                    height: 25px; 
+                    margin-left: 13px;
+                }
+
+                .validated:invalid{
+                    background-color: #dbfdf5;
+                }
+
+                .validated:valid{
+                    background-color: #fff;
+                    border-radius: 2px;
+                }
+                
+        </style>
+
+     
+    </head>
+    <body>
+          <div id="base" >
+                  <div id="header"> API - USER LOGIN</div> 
+                   <div id="mainCont">
+                       <form autocomplete="off" method="post" id="loginFrm"  action="/api/auth/login" enctype="application/x-www-form-urlencoded">
+                            <div class="fieldContainer">
+                                <div class="infolabel"><label for="email">User email:</label></div>
+                                <div class="inputCont"><input type="email"  name ='email' id="email"  class="validated" autofocus autocomplete="off" required/></div>
+                            </div>
+
+                            <div class="fieldContainer">
+                                <div class="infolabel"><label for="email">Password:</label></div>
+                                <div class="inputCont"><input  type="password" name ='password' id="passkey"  class="validated" autofocus autocomplete="off" pattern="[0-9a-zA-Z ]{5,255}" required/></div>
+                            </div>
+
+                            <div id="frmSubmitter" class="fieldContainer">
+                                <input type='submit' value='Login' id='submitForm'/>
+                            </div>
+                       </form>
+                   </div>
+                   <div id="summaryCanvas">Copyright &copy;2023 DFCU-BANK </div>
+          </div>  
+    </body>
+</html>

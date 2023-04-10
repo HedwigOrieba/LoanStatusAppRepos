@@ -1,0 +1,1 @@
+This a loan status providing service for a subscribed customer account.

@@ -1,0 +1,7 @@
+ {
+    "Author":"Hedwig Orieba",
+    "description":"Artifact-production instance environment",
+    "dbconStr":"mongodb://localhost/dfcuDb",
+    "loggingdbConstr":"mongodb://localhost/dfcuLogsDB"
+}
+
